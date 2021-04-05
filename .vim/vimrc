@@ -61,7 +61,7 @@ map <C-t> :e <cfile><cr>
 map <S-Tab> :bn<CR>
 map <F5> :setlocal spell! spelllang=en_gb<CR>
 vnoremap <leader>pp :Prettier<CR>
-vnoremap <leader>p "_dP
+"vnoremap <leader>p "_dP
 
 let loaded_matchparen = 1
 let mapleader = " "
@@ -80,10 +80,11 @@ nmap <silent> <leader>gn <Plug>(coc-diagnostic-next-error)
 nnoremap <leader>cr :CocRestart
 nmap <leader>qf  <Plug>(coc-fix-current)
 nnoremap <leader>cp :CocFzfList<CR>
-nnoremap <leader>cpd :CocFzfList diagnostics<CR>
-nnoremap <leader>cpa :CocFzfList actions<CR>
-nnoremap <leader>cpo :CocFzfList outline<CR>
-nnoremap <leader>cpy :CocFzfList yank<CR>
+nnoremap <leader>cd :CocFzfList diagnostics<CR>
+nnoremap <leader>cf :CocFzfList diagnostics --curent-buf<CR>
+nnoremap <leader>ca :CocFzfList actions<CR>
+nnoremap <leader>co :CocFzfList outline<CR>
+nnoremap <leader>cy :CocFzfList yank<CR>
 
 " allow to scroll in the preview
 set mouse=a
@@ -127,6 +128,30 @@ let g:ale_fixers = {
   \'javascript': ['prettier', 'eslint'],
   \'vue': ['eslint', 'stylelint'],
 \}
+"
+" coc global extension
+let g:coc_global_extensions = [
+			\ 'coc-pairs',
+			\ 'coc-java',
+			\ 'coc-json',
+			\ 'coc-sh',
+			\ 'coc-git',
+			\ 'coc-snippets',
+			\ 'coc-vimlsp',
+			\ 'coc-texlab',
+			\ 'coc-phpls',
+			\ 'coc-phpactor',
+			\ 'coc-clangd',
+			\ 'coc-yaml',
+			\ 'coc-docker',
+			\ 'coc-tsserver',
+			\ 'coc-css',
+			\ 'coc-html',
+			\ ]
+
+" PHP
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+set completeopt=noinsert,menuone,noselect
 
 " JS Syntax highlight
 "let g:javascript_plugin_jsdoc = 1
