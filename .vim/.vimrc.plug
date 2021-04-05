@@ -1,0 +1,73 @@
+" .vimrc.plug
+
+call plug#begin('~/.vim/plugged')
+" Git
+Plug 'tpope/vim-fugitive'
+
+Plug 'justinmk/vim-sneak'
+Plug 'tpope/vim-surround'
+
+" Code completion
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc-vetur'
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+Plug 'antoinemadec/coc-fzf'
+
+" Code commenter
+Plug 'preservim/nerdcommenter'
+"
+" Syntax highlighting
+Plug 'dense-analysis/ale'
+Plug 'mattn/emmet-vim'
+
+" NERDTree
+Plug 'preservim/nerdtree'
+
+" Statusbar
+Plug 'itchyny/lightline.vim'
+"
+" Finder
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'stsewd/fzf-checkout.vim'
+
+" File finder
+Plug 'vifm/vifm.vim'
+
+" syntax checking
+" Plug 'scrooloose/syntastic'
+"
+" Theme
+Plug 'morhetz/gruvbox'
+Plug 'tomasiser/vim-code-dark'
+Plug 'rakr/vim-one'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'joshdick/onedark.vim'
+" Plug 'larsbs/vimterial_dark'
+Plug 'gosukiwi/vim-atom-dark'
+Plug 'itchyny/lightline.vim'
+" Plug 'flazz/vim-colorschemes'
+Plug 'pangloss/vim-javascript'
+
+" workspace
+Plug 'thaerkh/vim-workspace'
+
+" Syntax hightlighter
+Plug 'jelera/vim-javascript-syntax'
+
+" Tabs
+" Plug 'ap/vim-buftabline'
+" show marks
+Plug 'kshenoy/vim-signature'
+
+" post install (yarn install | npm install) then load plugin only for editing supported files
+Plug 'prettier/vim-prettier', {
+ \ 'do': 'yarn install',
+ \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+
+
+" Typescript syntax hightlighter
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'leafgarland/typescript-vim'
+call plug#end()
