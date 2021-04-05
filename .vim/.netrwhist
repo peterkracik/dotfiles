@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/Users/pkracik/Downloads/Export-5b0b2f67-55a1-40f7-a75b-e472a06d3030/Dashboard'
+let g:netrw_dirhist_3='/Users/pkracik/.vim'
+let g:netrw_dirhist_2='/Users/pkracik'
+let g:netrw_dirhist_1='/Users/pkracik/.oh-my-zsh'
