@@ -77,14 +77,14 @@ nmap <leader>g[ <Plug>(coc-diagnostic-prev)
 nmap <leader>g] <Plug>(coc-diagnostic-next)
 nmap <silent> <leader>gp <Plug>(coc-diagnostic-prev-error)
 nmap <silent> <leader>gn <Plug>(coc-diagnostic-next-error)
-nnoremap <leader>cr :CocRestart
-nmap <leader>qf  <Plug>(coc-fix-current)
-nnoremap <leader>cp :CocFzfList<CR>
-nnoremap <leader>cd :CocFzfList diagnostics<CR>
-nnoremap <leader>cf :CocFzfList diagnostics --curent-buf<CR>
-nnoremap <leader>ca :CocFzfList actions<CR>
-nnoremap <leader>co :CocFzfList outline<CR>
-nnoremap <leader>cy :CocFzfList yank<CR>
+nnoremap <leader>.r :CocRestart
+nmap <leader>.f  <Plug>(coc-fix-current)
+nnoremap <leader>.l :CocFzfList<CR>
+nnoremap <leader>.d :CocFzfList diagnostics<CR>
+nnoremap <leader>.b :CocFzfList diagnostics --curent-buf<CR>
+nmap <leader>.a :CocFzfList actions<CR>
+nnoremap <leader>.o :CocFzfList outline<CR>
+nnoremap <leader>.y :CocFzfList yank<CR>
 
 " allow to scroll in the preview
 set mouse=a
@@ -105,6 +105,23 @@ nmap <leader>gj :diffget //3<CR>
 nmap <leader>gf :diffget //2<CR>
 nmap <leader>gs :G<CR>
 nmap <leader>gc :GCheckout<CR>
+
+" " fugitive git bindings
+"nnoremap <space>ga :Git add %:p<CR><CR>
+"nnoremap <space>gs :Gstatus<CR>
+"nnoremap <space>gc :Gcommit -v -q<CR>
+"nnoremap <space>gt :Gcommit -v -q %:p<CR>
+"nnoremap <space>gd :Gdiff<CR>
+"nnoremap <space>ge :Gedit<CR>
+"nnoremap <space>gr :Gread<CR>
+"nnoremap <space>gw :Gwrite<CR><CR>
+"nnoremap <space>gl :silent! Glog<CR>:bot copen<CR>
+"nnoremap <space>gp :Ggrep<Space>
+"nnoremap <space>gm :Gmove<Space>
+"nnoremap <space>gb :Git branch<Space>
+"nnoremap <space>go :Git checkout<Space>
+"nnoremap <space>gps :Dispatch! git push<CR>
+"nnoremap <space>gpl :Dispatch! git pull<CR>
 
 " Search and replace hotkey
 nnoremap H :%s//gc<left><left><left>
@@ -179,4 +196,4 @@ command! -bang -nargs=* Rg
 
 let g:onedark_terminal_italics = 1
 let g:onedark_terminal_italics=1
-colorscheme onedark
+colorscheme codedark
