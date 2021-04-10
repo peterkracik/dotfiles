@@ -55,7 +55,7 @@ Plug 'thaerkh/vim-workspace'
 
 " Syntax hightlighter
 Plug 'jelera/vim-javascript-syntax'
-
+Plug 'nelsyeung/twig.vim'
 " Tabs
 " Plug 'ap/vim-buftabline'
 " show marks
