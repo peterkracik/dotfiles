@@ -1,0 +1,13 @@
+{
+  "snippets.userSnippetsDirectory": "~/.config/nvim/snips",
+  "diagnostic.enableMessage": "jump",
+  "hover.target": "float",
+  "diagnostic.enable": true,
+  "intelephense.diagnostics.enable": true,
+  "diagnostic.messageTarget": "float",
+  "signature.enable": true,
+  "codeLens.enable": true,
+  "diagnostic.errorSign": "",
+  "diagnostic.warningSign": "",
+  "diagnostic.infoSign": ""
+}

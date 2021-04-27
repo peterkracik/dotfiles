@@ -1,0 +1,220 @@
+" Nice menu when typing `:find *.py`
+set wildmode=longest,list,full
+set wildmenu
+" Ignore files
+set wildignore+=*.pyc
+set wildignore+=*_build/*
+set wildignore+=**/coverage/*
+set wildignore+=**/node_modules/*
+set wildignore+=**/android/*
+set wildignore+=**/ios/*
+set wildignore+=**/.git/*
+
+
+
+set tags=tags
+syntax on
+set redrawtime=10000
+set re=0
+set splitright
+" set guicursor=
+set guicursor=n-v-c:block-Cursor
+set guicursor+=i:ver100-iCursor
+set guicursor+=n-v-c:blinkon0
+set guicursor+=i:blinkwait10
+set noshowmatch
+set noshowmode
+set relativenumber
+set nohlsearch
+set hidden
+set noerrorbells
+set tabstop=2 softtabstop=2
+set shiftwidth=2
+set expandtab
+set smartindent
+set nu
+set nowrap
+set smartcase
+set noswapfile
+set nobackup
+set undodir=~/.vim/undodir
+set undofile
+set incsearch
+" set termguicolors
+set scrolloff=8
+set modifiable
+
+" Give more space for displaying messages.
+set cmdheight=2
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=50
+
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
+
+" Tmux italic
+" highlight Comment cterm=italic
+
+" Import plugins
+if filereadable(expand("~/.vim/.vimrc.plug"))
+ source ~/.vim/.vimrc.plug
+endif
+
+" set colorcolumn=100
+highlight ColorColumn ctermbg=0 guibg=lightgrey
+
+map <C-n> :NERDTreeToggle<CR>
+map <C-S-p> :Files<CR>
+map <C-p> :GFiles<CR>
+map <C-h> :History<CR>
+map <C-b> :Buffers<CR>
+map <C-f> :Rg<CR>
+map <C-t> :e <cfile><cr>
+map <S-Tab> :bn<CR>
+map <F5> :setlocal spell! spelllang=en_gb<CR>
+vnoremap <leader>pp :Prettier<CR>
+"vnoremap <leader>p "_dP
+
+let loaded_matchparen = 1
+let mapleader = " "
+
+" CoC
+" GoTo code navigation.
+nmap <leader>gd <Plug>(coc-definition)
+nmap <leader>gy <Plug>(coc-type-definition)
+nmap <leader>gi <Plug>(coc-implementation)
+nmap <leader>gr <Plug>(coc-references)
+nmap <leader>rr <Plug>(coc-rename)
+nmap <leader>g[ <Plug>(coc-diagnostic-prev)
+nmap <leader>g] <Plug>(coc-diagnostic-next)
+nmap <silent> <leader>gp <Plug>(coc-diagnostic-prev-error)
+nmap <silent> <leader>gn <Plug>(coc-diagnostic-next-error)
+nnoremap <leader>.r :CocRestart
+nmap <leader>.f  <Plug>(coc-fix-current)
+nnoremap <leader>.l :CocFzfList<CR>
+nnoremap <leader>.d :CocFzfList diagnostics<CR>
+nnoremap <leader>.b :CocFzfList diagnostics --curent-buf<CR>
+nmap <leader>.a :CocFzfList actions<CR>
+nnoremap <leader>.o :CocFzfList outline<CR>
+nnoremap <leader>.y :CocFzfList yank<CR>
+
+" allow to scroll in the preview
+set mouse=a
+
+" mappings
+"nnoremap <leader><.><.> :<C-u>CocFzfList<CR>
+"nnoremap <leader><.>a       :<C-u>CocFzfList diagnostics<CR>
+"nnoremap <leader><.>b       :<C-u>CocFzfList diagnostics --current-buf<CR>
+"nnoremap <leader><.>c       :<C-u>CocFzfList commands<CR>
+"nnoremap <leader><.>e       :<C-u>CocFzfList extensions<CR>
+"nnoremap <leader><.>l       :<C-u>CocFzfList location<CR>
+"nnoremap <leader><.>o       :<C-u>CocFzfList outline<CR>
+"nnoremap <leader><.>s       :<C-u>CocFzfList symbols<CR>
+"nnoremap <leader><.>p       :<C-u>CocFzfListResume<CR>
+
+" Sweet Sweet FuGITive
+nmap <leader>gj :diffget //3<CR>
+nmap <leader>gf :diffget //2<CR>
+nmap <leader>gs :G<CR>
+nmap <leader>gc :GCheckout<CR>
+
+" " fugitive git bindings
+"nnoremap <space>ga :Git add %:p<CR><CR>
+"nnoremap <space>gs :Gstatus<CR>
+"nnoremap <space>gc :Gcommit -v -q<CR>
+"nnoremap <space>gt :Gcommit -v -q %:p<CR>
+"nnoremap <space>gd :Gdiff<CR>
+"nnoremap <space>ge :Gedit<CR>
+"nnoremap <space>gr :Gread<CR>
+"nnoremap <space>gw :Gwrite<CR><CR>
+"nnoremap <space>gl :silent! Glog<CR>:bot copen<CR>
+"nnoremap <space>gp :Ggrep<Space>
+"nnoremap <space>gm :Gmove<Space>
+"nnoremap <space>gb :Git branch<Space>
+"nnoremap <space>go :Git checkout<Space>
+"nnoremap <space>gps :Dispatch! git push<CR>
+"nnoremap <space>gpl :Dispatch! git pull<CR>
+
+" Search and replace hotkey
+nnoremap H :%s//gc<left><left><left>
+
+" Move highlighted text up and down
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
+" Status bar config
+set statusline+=%#warningmsg#
+
+" Fix files automatically on save
+let g:ale_fixers = {}
+let g:ale_javascript_eslint_use_global = 1
+let g:ale_linters = {
+  \'javascript': ['eslint'],
+  \'vue': ['eslint', 'stylelint', 'tsserver'],
+\}
+
+let g:ale_fixers = {
+  \'javascript': ['prettier', 'eslint'],
+  \'vue': ['eslint', 'stylelint'],
+\}
+"
+" coc global extension
+let g:coc_global_extensions = [
+			\ 'coc-pairs',
+			\ 'coc-java',
+			\ 'coc-json',
+			\ 'coc-sh',
+			\ 'coc-git',
+			\ 'coc-snippets',
+			\ 'coc-vimlsp',
+			\ 'coc-texlab',
+			\ 'coc-phpls',
+			\ 'coc-phpactor',
+			\ 'coc-clangd',
+			\ 'coc-yaml',
+			\ 'coc-docker',
+			\ 'coc-tsserver',
+			\ 'coc-css',
+			\ 'coc-html',
+			\ ]
+
+" PHP
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+set completeopt=noinsert,menuone,noselect
+
+" JS Syntax highlight
+"let g:javascript_plugin_jsdoc = 1
+
+let g:ale_linters_explicit = 1
+let g:ale_sign_column_always = 1
+let g:ale_sign_error = '!!'
+let g:ale_sign_warning = '--'
+let g:ale_fix_on_save = 1
+" Close NERDTree when closing the last buffer
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+
+autocmd BufWritePre * :call TrimWhitespace()
+
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview(), <bang>0)
+
+let g:onedark_terminal_italics = 1
+let g:onedark_terminal_italics=1
+colorscheme codedark
+
+let g:fzf_branch_actions = {
+      \ 'track': {'keymap': 'ctrl-n'},
+      \}
+
+
+
