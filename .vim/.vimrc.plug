@@ -3,7 +3,6 @@
 call plug#begin('~/.vim/plugged')
 " Git
 Plug 'tpope/vim-fugitive'
-
 Plug 'justinmk/vim-sneak'
 Plug 'tpope/vim-surround'
 
@@ -49,6 +48,7 @@ Plug 'gosukiwi/vim-atom-dark'
 Plug 'itchyny/lightline.vim'
 " Plug 'flazz/vim-colorschemes'
 Plug 'pangloss/vim-javascript'
+Plug 'wakatime/vim-wakatime'
 
 " workspace
 Plug 'thaerkh/vim-workspace'
@@ -70,4 +70,14 @@ Plug 'prettier/vim-prettier', {
 " Typescript syntax hightlighter
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'leafgarland/typescript-vim'
+
+Plug 'neovim/nvim-lsp'
+Plug 'tbastos/vim-lua'
+
+" Telescope
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzy-native.nvim'
+
 call plug#end()
