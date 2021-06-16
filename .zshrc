@@ -134,4 +134,6 @@ export TERM=xterm-256color
 ctags=/usr/local/bin/ctags
 #export TERM=xterm-256color-italic
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-
+alias mite='node ~/Projects/parkside/mite/index.js'
+alias vim='nvim'
+alias kbl='kubectl'

@@ -78,6 +78,9 @@ call plug#begin('~/.vim/plugged')
 "Plug 'nvim-lua/diagnostic-nvim'
 
 
+Plug 'justinmk/vim-sneak'
+Plug 'tpope/vim-surround'
+
 " Code completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-vetur'
@@ -145,6 +148,10 @@ Plug 'prettier/vim-prettier', {
  \ 'do': 'yarn install',
  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 
+"debugger
+Plug 'puremourning/vimspector'
+Plug 'szw/vim-maximizer'
+
 call plug#end()
 
 
@@ -152,17 +159,28 @@ call plug#end()
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 let g:NERDTreeWinSize=50
-map <C-n> :NERDTreeToggle<CR>
+"map <C-n> :NERDTreeToggle<CR>
 map <C-t> :e <cfile><cr>
 vnoremap <leader>.p :Prettier<CR>
 
 
 " Search and replace hotkey
 nnoremap H :%s//gc<left><left><left>
+vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+vnoremap <C-h> ""y:%s/<C-R>=escape(@", '/\')<CR>//g<Left><Left>
 
 " Move highlighted text up and down
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
+
+
+" Sweet Sweet FuGITive
+nmap <leader>gj :diffget //3<CR>
+nmap <leader>gf :diffget //2<CR>
+nmap <leader>gs :G<CR>
+nmap <leader>gc :GCheckout<CR>
+
 
 " Important!!
 if has('termguicolors')
@@ -328,3 +346,46 @@ let g:blamer_relative_time = 1
 let g:blamer_show_in_visual_modes = 1
 let g:blamer_show_in_insert_modes = 0
 let g:blamer_prefix = '  '
+
+" Explorer
+let g:coc_explorer_global_presets = {
+\   '.vim': {
+\     'root-uri': '~/.vim',
+\   },
+\   'tab': {
+\     'position': 'tab',
+\     'quit-on-open': v:true,
+\   },
+\   'floating': {
+\     'position': 'floating',
+\     'open-action-strategy': 'sourceWindow',
+\   },
+\   'floatingTop': {
+\     'position': 'floating',
+\     'floating-position': 'center-top',
+\     'open-action-strategy': 'sourceWindow',
+\   },
+\   'floatingLeftside': {
+\     'position': 'floating',
+\     'floating-position': 'left-center',
+\     'floating-width': 50,
+\     'open-action-strategy': 'sourceWindow',
+\   },
+\   'floatingRightside': {
+\     'position': 'floating',
+\     'floating-position': 'right-center',
+\     'floating-width': 50,
+\     'open-action-strategy': 'sourceWindow',
+\   },
+\   'simplify': {
+\     'file-child-template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]'
+\   }
+\ }
+
+nmap <c-N> :CocCommand explorer<CR>
+nmap <c-M> :CocCommand explorer --preset floating<CR>
+autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
+
+
+"debugger
+let g:vimspector_enable_mappings = 'HUMAN'
