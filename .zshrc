@@ -124,12 +124,6 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/pkracik/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/pkracik/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/pkracik/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/pkracik/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-
 export TERM=xterm-256color
 ctags=/usr/local/bin/ctags
 #export TERM=xterm-256color-italic
@@ -137,3 +131,9 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias mite='node ~/Projects/parkside/mite/index.js'
 alias vim='nvim'
 alias kbl='kubectl'
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/pkracik/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/pkracik/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/pkracik/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/pkracik/Downloads/google-cloud-sdk/completion.zsh.inc'; fi

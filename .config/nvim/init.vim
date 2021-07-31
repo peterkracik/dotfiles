@@ -170,17 +170,28 @@ vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 vnoremap <C-h> ""y:%s/<C-R>=escape(@", '/\')<CR>//g<Left><Left>
 
-" Move highlighted text up and down
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
-
-
 " Sweet Sweet FuGITive
 nmap <leader>gj :diffget //3<CR>
 nmap <leader>gf :diffget //2<CR>
 nmap <leader>gs :G<CR>
 nmap <leader>gc :GCheckout<CR>
 
+
+" keeping it centered
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap J mzJ`z
+
+" moving text
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+inoremap <C-k> <esc>:m .-2<CR>==a
+inoremap <C-j> <esc>:m .+1<CR>==a
+nnoremap <leader>j :m .+1<CR>==
+nnoremap <leader>k :m .-2<CR>==
+
+" copy till end of the line
+nnoremap Y y$
 
 " Important!!
 if has('termguicolors')
