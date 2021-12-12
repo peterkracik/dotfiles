@@ -80,7 +80,7 @@ plugins=(
   nvm
   npm
   forklift
-  osx
+  macos
   zsh-vi-mode
   # zsh-syntax-highlighting
   zsh-autosuggestions
@@ -137,3 +137,7 @@ if [ -f '/Users/pkracik/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Use
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/pkracik/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/pkracik/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+php-version() {
+  brew unlink php && brew link --overwrite --force php@"$1"
+}
