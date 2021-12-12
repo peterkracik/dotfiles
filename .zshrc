@@ -80,7 +80,7 @@ plugins=(
   nvm
   npm
   forklift
-  osx
+  macos
   zsh-vi-mode
   # zsh-syntax-highlighting
   zsh-autosuggestions
@@ -96,11 +96,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
  #Preferred editor for local and remote sessions
- if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='vim'
- else
-   export EDITOR='mvim'
- fi
+ #if [[ -n $SSH_CONNECTION ]]; then
+ export EDITOR='nvim'
+ #else
+   #export EDITOR='mvim'
+ #fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -124,12 +124,21 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 
+export TERM=xterm-256color
+ctags=/usr/local/bin/ctags
+#export TERM=xterm-256color-italic
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias mite='node ~/Projects/parkside/mite/index.js'
+alias vim='nvim'
+alias kbl='kubectl'
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/pkracik/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/pkracik/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/pkracik/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/pkracik/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
+<<<<<<< HEAD
 export TERM=xterm-256color
 ctags=/usr/local/bin/ctags
 #export TERM=xterm-256color-italic

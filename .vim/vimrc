@@ -1,3 +1,17 @@
+" Nice menu when typing `:find *.py`
+set wildmode=longest,list,full
+set wildmenu
+" Ignore files
+set wildignore+=*.pyc
+set wildignore+=*_build/*
+set wildignore+=**/coverage/*
+set wildignore+=**/node_modules/*
+set wildignore+=**/android/*
+set wildignore+=**/ios/*
+set wildignore+=**/.git/*
+
+
+
 set tags=tags
 syntax on
 set redrawtime=10000
@@ -197,3 +211,10 @@ command! -bang -nargs=* Rg
 let g:onedark_terminal_italics = 1
 let g:onedark_terminal_italics=1
 colorscheme codedark
+
+let g:fzf_branch_actions = {
+      \ 'track': {'keymap': 'ctrl-n'},
+      \}
+
+
+
