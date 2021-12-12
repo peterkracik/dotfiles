@@ -135,3 +135,6 @@ ctags=/usr/local/bin/ctags
 #export TERM=xterm-256color-italic
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
+phpVersion() {
+  brew unlink php && brew link --overwrite --force php@"$1"
+}

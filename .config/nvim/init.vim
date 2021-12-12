@@ -149,12 +149,12 @@ call plug#end()
 
 
 " Close NERDTree when closing the last buffer
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-let g:NERDTreeWinSize=50
-map <C-n> :NERDTreeToggle<CR>
-map <C-t> :e <cfile><cr>
-vnoremap <leader>.p :Prettier<CR>
+"let g:NERDTreeWinSize=50
+"map <C-n> :NERDTreeToggle<CR>
+"map <C-t> :e <cfile><cr>
+"vnoremap <leader>.p :Prettier<CR>
 
 
 " Search and replace hotkey
